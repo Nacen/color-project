@@ -5,8 +5,8 @@ import ColorBox from '../ColorBox/ColorBox';
 
 class Palette extends Component {
   render() {
-    const colorBoxes = this.props.colors.map(color => {
-      return <ColorBox background={color.color} name={color.name}/>
+    const colorBoxes = this.props.colors.map((color, index) => {
+      return <ColorBox key={index} background={color.color} name={color.name}/>
     })
     return (
       <div className="Palette">
