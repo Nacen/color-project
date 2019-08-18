@@ -5,13 +5,9 @@ import seedColors from './seedColor';
 import "./App.css";
 
 function App() {
-  return (<div>
-    <div classsName="Palette">
-    {/* Navbar */}
-      <div className="Palette-colors"></div>
-    {/* footer */}
-    </div>
-  </div>);
+  return (<div className="App">
+      <Pallete {...seedColors[3]} />
+    </div>);
 }
 
 export default App;
