@@ -17,7 +17,6 @@ class ColorBox extends Component {
   render() {
     const { background, name } = this.props;
     const { copied } = this.state;
-    const showOverlay = this.state.copied ? 'copy-overlay-show' : '';
     return (
       <CopyToClipboard onCopy={this.changeCopyState} text={background}>
         <div className="ColorBox" style={{ backgroundColor: background }}>
