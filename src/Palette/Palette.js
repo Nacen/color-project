@@ -7,22 +7,27 @@ import "./Palette.css";
 
 class Palette extends Component {
   state = { 
-    level: 500
+    level: 500,
+    format: 'hex'
   };
 
   changeLevel = level => {
     this.setState({ level: level });
   };
 
+  changeFormat = (evt) => {
+    this.setState({format: evt.target.value})
+  }
+
   render() {
     const { palette } = this.props;
-    const { level } = this.state;
+    const { level, format } = this.state;
     const colorBoxes = palette.colors[level].map((color, index) => {
-      return <ColorBox key={index} background={color.hex} name={color.name} />;
+      return <ColorBox key={index} background={color[format]} name={color.name} />;
     });
     return (
       <div className="Palette">
-        <Navbar level={level} changeLevel={this.changeLevel} />
+        <Navbar format={format} changeFormat={this.changeFormat} level={level} changeLevel={this.changeLevel} />
         <div className="Palette-colors">{colorBoxes}</div>
       </div>
     );
