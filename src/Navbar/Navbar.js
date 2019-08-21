@@ -24,7 +24,7 @@ class Navbar extends Component {
 
   render() {
     const { open } = this.state;
-    const { level, changeLevel, changeFormat, format } = this.props;
+    const { level, changeLevel, format } = this.props;
     return (
       <header className="Navbar">
         <div className="Navbar-logo">
