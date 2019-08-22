@@ -16,7 +16,6 @@ const findPalette = id => {
 function App() {
   return (
     <div>
-      <MiniPalette />
       <Switch>
         <Route exact path="/" render={() => <PaletteList palettes={seedColors} />} />
         <Route
