@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+
+import MiniPalette from './MiniPalette/MiniPalette';
 import Palette from "./Palette/Palette";
 import PaletteList from './PaletteList/PaletteList';
 import seedColors from "./seedColor";
@@ -14,6 +16,7 @@ const findPalette = id => {
 function App() {
   return (
     <div>
+      <MiniPalette />
       <Switch>
         <Route exact path="/" render={() => <PaletteList palettes={seedColors} />} />
         <Route
