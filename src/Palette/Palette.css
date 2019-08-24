@@ -7,15 +7,8 @@
   height: 90%;
   display: flex;
   flex-wrap: wrap;
-}
+  align-content: stretch;
 
-.Palette-footer {
-  background-color: white;
-  height: 5vh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-weight: bold;
 }
 
 .emoji {
