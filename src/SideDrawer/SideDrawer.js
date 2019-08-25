@@ -24,6 +24,8 @@ const SideDrawer = props => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
+  const [colors, setColors] = React.useState(["purple", "#e15764"]);
+  const [currentColor, setCurrentColor] = React.useState("teal");
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -32,6 +34,9 @@ const SideDrawer = props => {
   function handleDrawerClose() {
     setOpen(false);
   }
+
+  console.log(colors);
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -85,11 +90,16 @@ const SideDrawer = props => {
             </div>
             <ChromePicker
               styles={{ width: "100%" }}
-              color="purple"
-              onChangeComplete={newColor => console.log(newColor)}
+              color={currentColor}
+              onChangeComplete={newColor => setCurrentColor(newColor.hex)}
             />
 
-            <Button variant="contained" color="primary">
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ backgroundColor: currentColor }}
+              onClick={() => setColors([...colors, currentColor])}
+            >
               Add Color
             </Button>
           </div>
@@ -101,6 +111,11 @@ const SideDrawer = props => {
         })}
       >
         <div className={classes.drawerHeader} />
+        <ul>
+          {colors.map(color => (
+            <li key={color} style={{ background: color }}>{color}</li>
+          ))}
+        </ul>
         {props.children}
       </main>
     </div>
