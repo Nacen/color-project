@@ -8,6 +8,7 @@ import seedColors from "./seedColor";
 import { generatePalette } from "./colorHelpers";
 
 import "./App.css";
+import NewPaletteForm from "./NewPaletteForm/NewPaletteForm";
 
 const findPalette = id => {
   return seedColors.find(palette => palette.id === id);
@@ -17,6 +18,7 @@ function App() {
   return (
     <div>
       <Switch>
+        <Route exact path="/palette/new" render={() => <NewPaletteForm />} />
         <Route
           exact
           path="/"
@@ -36,7 +38,12 @@ function App() {
         <Route
           path="/palette/:paletteId/:colorId"
           render={routeProps => (
-            <SingleColorPalette colorId={routeProps.match.params.colorId} palette={generatePalette(findPalette(routeProps.match.params.paletteId))} />
+            <SingleColorPalette
+              colorId={routeProps.match.params.colorId}
+              palette={generatePalette(
+                findPalette(routeProps.match.params.paletteId)
+              )}
+            />
           )}
         />
       </Switch>
