@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
+    justifyContent: "space-between"
   },
   content: {
     flexGrow: 1,
@@ -54,6 +54,25 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen
     }),
     marginLeft: 0
+  },
+
+  formContainer: {
+    display: "flex",
+    flexDirection: 'column',
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%"
+  },
+  buttonContainer: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between"
+  },
+  newPaletteForm: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center"
   }
 }));
 
