@@ -8,7 +8,7 @@ import seedColors from "./seedColors";
 import { generatePalette } from "./colorHelpers";
 
 import "./App.css";
-import NewPaletteForm from "./NewPaletteForm/NewPaletteForm";
+import NewPaletteForm from './NewPaletteForm/NewPaletteForm';
 
 function App() {
   const [palettes, setPalettes] = useState(seedColors);
@@ -28,7 +28,11 @@ function App() {
           exact
           path="/palette/new"
           render={routeProps => (
-            <NewPaletteForm savePalette={savePalette} {...routeProps} />
+            <NewPaletteForm
+              savePalette={savePalette}
+              palettes={palettes}
+              {...routeProps}
+            />
           )}
         />
         <Route
