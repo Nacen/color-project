@@ -40,6 +40,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-between"
   },
   content: {
+    height: "calc(100vh - 64px)",
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
@@ -72,7 +73,14 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    height: "80%",
+    "& chrome-picker": {
+      width: "100%"
+    }
+  },
+  addColorButton: {
+    width: "100%"
   }
 }));
 

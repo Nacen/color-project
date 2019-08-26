@@ -1,15 +1,9 @@
-import React, { Component } from 'react'
-import SideDrawer from '../SideDrawer/SideDrawer';
-
+import React, { Component } from "react";
+import SideDrawer from "../SideDrawer/SideDrawer";
 
 class NewPaletteForm extends Component {
   render() {
-    return (
-      <div>
-        <SideDrawer>
-        </SideDrawer>
-      </div>
-    )
+    return <SideDrawer savePalette={this.props.savePalette} history={this.props.history} />;
   }
 }
-export default NewPaletteForm; 
+export default NewPaletteForm;
