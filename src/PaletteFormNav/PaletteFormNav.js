@@ -10,11 +10,12 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import useStyles from "../styles/PaletteFormNavStyles";
+import PaletteMetaForm from "../PaletteMetaForm/PaletteMetaForm";
 
 const PaletteFormNav = ({
-  handleSave,
   open,
   handleDrawerOpen,
+  handleSave,
   setPaletteName,
   paletteName,
   palettes
@@ -30,6 +31,7 @@ const PaletteFormNav = ({
     return () => {
       ValidatorForm.removeValidationRule("isPaletteNameUnique");
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -61,21 +63,11 @@ const PaletteFormNav = ({
           </Button> */}
         </Toolbar>
         <div className={classes.navButtons}>
-          <ValidatorForm onSubmit={() => handleSave()}>
-            <TextValidator
-              label="Palette Name"
-              value={paletteName}
-              onChange={evt => setPaletteName(evt.target.value)}
-              validators={["required", "isPaletteNameUnique"]}
-              errorMessages={[
-                "Enter Palette Name",
-                "Palette Name Already Exist"
-              ]}
-            />
-            <Button variant="contained" color="primary" type="submit">
-              Save Palette
-            </Button>
-          </ValidatorForm>
+          <PaletteMetaForm
+            handleSave={handleSave}
+            setPaletteName={setPaletteName}
+            paletteName={paletteName}
+          />
           <Link to="/" style={{ textDecoration: "none" }}>
             <Button variant="contained" color="secondary">
               Go Back

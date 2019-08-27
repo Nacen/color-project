@@ -29,7 +29,8 @@ const useStyles = makeStyles(theme => ({
   navButtons: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    marginRight: "10px"
   }
 }));
 
