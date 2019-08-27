@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -21,6 +21,15 @@ const PaletteFormNav = ({
   palettes
 }) => {
   const classes = useStyles();
+  const [openDialog, setOpenDialog] = useState(false);
+
+  function handleClickOpenDialog() {
+    setOpenDialog(true);
+  }
+
+  function handleCloseDialog() {
+    setOpenDialog(false);
+  }
 
   useEffect(() => {
     ValidatorForm.addValidationRule("isPaletteNameUnique", value =>
@@ -67,12 +76,21 @@ const PaletteFormNav = ({
             handleSave={handleSave}
             setPaletteName={setPaletteName}
             paletteName={paletteName}
+            openDialog={openDialog}
+            handleCloseDialog={handleCloseDialog}
           />
           <Link to="/" style={{ textDecoration: "none" }}>
             <Button variant="contained" color="secondary">
               Go Back
             </Button>
           </Link>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleClickOpenDialog}
+          >
+            Save Palette
+          </Button>
         </div>
       </AppBar>
     </React.Fragment>
