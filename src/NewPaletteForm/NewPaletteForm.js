@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from "@material-ui/core/Button";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import useStyles from "../styles/SideDrawerStyles";
+import useStyles from "../styles/NewPaletteFormStyles";
 import { arrayMove } from "react-sortable-hoc";
 
 import DraggableColorList from "../DraggableColorList/DraggableColorList";
@@ -91,7 +86,6 @@ const NewPaletteForm = props => {
         }}
       >
         <div className={classes.drawerHeader}>
-          <h1>New Color Palette Form</h1>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>

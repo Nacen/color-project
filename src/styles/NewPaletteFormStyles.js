@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
-    justifyContent: "space-between"
+    justifyContent: "flex-end"
   },
   content: {
     height: "calc(100vh - 64px)",
@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
   buttonContainer: {
     width: "100%",
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "center"
   },
   newPaletteForm: {
     display: "flex",
@@ -75,13 +75,9 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-between",
     alignItems: "center",
     height: "80%",
-    "& chrome-picker": {
-      width: "100%"
-    }
+    width: "80%",
+
   },
-  addColorButton: {
-    width: "100%"
-  }
 }));
 
 export default useStyles;

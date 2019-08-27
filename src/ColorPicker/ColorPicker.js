@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import useStyles from "../styles/SideDrawerStyles";
 import Button from "@material-ui/core/Button";
+import { withStyles } from '@material-ui/styles';
+import styles from '../styles/ColorPickerStyles';
+
 
 const ColorPicker = ({
   currentColor,
@@ -11,9 +13,9 @@ const ColorPicker = ({
   colorName,
   setColorName,
   isPaletteFull,
-  colors
+  colors,
+  classes
 }) => {
-  const classes = useStyles();
 
   useEffect(() => {
     ValidatorForm.addValidationRule("isColorNameUnique", value =>
@@ -36,10 +38,11 @@ const ColorPicker = ({
   return (
     <React.Fragment>
       <ChromePicker
+        className={classes.colorPicker}
         color={currentColor}
         onChangeComplete={newColor => setCurrentColor(newColor.hex)}
       />
-      <ValidatorForm onSubmit={() => addColor(currentColor, colorName)}>
+      <ValidatorForm className={classes.addColor} onSubmit={() => addColor(currentColor, colorName)}>
         <TextValidator
           style={{ minWidth: "100%" }}
           label="New Color"
@@ -66,7 +69,6 @@ const ColorPicker = ({
               ? "rgba(0, 0, 0, 0.12)"
               : currentColor
           }}
-          className={classes.addColorButton}
           disabled={isPaletteFull}
         >
           {isPaletteFull ? "Palette Full" : "Add Color"}
@@ -76,4 +78,4 @@ const ColorPicker = ({
   );
 };
 
-export default ColorPicker;
+export default withStyles(styles)(ColorPicker);
