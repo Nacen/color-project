@@ -8,10 +8,18 @@ import seedColors from "./seedColors";
 import { generatePalette } from "./colorHelpers";
 
 import "./App.css";
-import NewPaletteForm from './NewPaletteForm/NewPaletteForm';
+import NewPaletteForm from "./NewPaletteForm/NewPaletteForm";
 
 function App() {
-  const [palettes, setPalettes] = useState(seedColors);
+  const savedPalettes = JSON.parse(localStorage.getItem("palettes"));
+  const [palettes, setPalettes] = useState(savedPalettes || seedColors);
+
+  React.useEffect(() => {
+    function syncLocalStorage() {
+      return localStorage.setItem("palettes", JSON.stringify(palettes));
+    }
+    syncLocalStorage();
+  }, [palettes]);
 
   const savePalette = newPalette => {
     setPalettes([...palettes, newPalette]);
