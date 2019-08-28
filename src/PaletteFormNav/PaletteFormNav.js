@@ -23,7 +23,7 @@ const PaletteFormNav = ({
   const classes = useStyles();
   const [openDialog, setOpenDialog] = useState(false);
 
-  function handleClickOpenDialog() {
+  function handleOpenDialog() {
     setOpenDialog(true);
   }
 
@@ -87,7 +87,7 @@ const PaletteFormNav = ({
           <Button
             variant="contained"
             color="primary"
-            onClick={handleClickOpenDialog}
+            onClick={handleOpenDialog}
           >
             Save Palette
           </Button>

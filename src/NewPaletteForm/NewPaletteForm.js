@@ -40,11 +40,12 @@ const NewPaletteForm = props => {
 
   const goBack = () => history.push("/");
 
-  const handleSavePalette = () => {
+  const handleSavePalette = (emoji) => {
     const newPalette = {
       paletteName: newPaletteName,
       id: newPaletteName.toLowerCase().replace(/ /g, "-"),
-      colors: colors
+      colors: colors,
+      emoji: emoji
     };
     savePalette(newPalette);
     goBack();
