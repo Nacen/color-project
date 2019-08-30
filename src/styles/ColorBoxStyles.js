@@ -1,5 +1,6 @@
 import chroma from "chroma-js";
- 
+import screenSizes from "./screenSizes";
+
 export default {
   colorBox: {
     width: "20%",
@@ -12,6 +13,14 @@ export default {
     "&:hover button": {
       opacity: "1",
       transition: "0.3s"
+    },
+    [screenSizes.down("lg")]: {
+      width: "25%",
+      height: props => (props.showingFullPalette ? "20%" : "40%")
+    },
+    [screenSizes.down("xs")]: {
+      width: "100%",
+      height: props => (props.showingFullPalette ? "5%" : "10%")
     }
   },
   boxContent: {
