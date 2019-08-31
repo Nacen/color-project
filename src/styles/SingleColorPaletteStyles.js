@@ -1,3 +1,4 @@
+import screenSize from "./screenSizes";
 export default {
   singleColorPalette: {
     height: "100vh",
@@ -29,7 +30,7 @@ export default {
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-3.5px",
+    marginBottom: "-4.5px",
     "& a": {
       textDecoration: "none",
       color: "white",
@@ -47,6 +48,19 @@ export default {
       border: "none",
       textTransform: "uppercase",
       cursor: "pointer"
-    }
+    },
+    [screenSize.down('lg')] : {
+      width: "25%",
+      height: "33.333%"
+    },
+    [screenSize.down('md')] : {
+      width: "50%",
+      height: "20%"
+    },
+    [screenSize.down('xs')] : {
+      width: "100%",
+      height: "10%"
+    },
+    
   }
 };

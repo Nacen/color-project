@@ -1,5 +1,5 @@
 import chroma from "chroma-js";
-import screenSizes from "./screenSizes";
+import screenSize from "./screenSizes";
 
 export default {
   colorBox: {
@@ -9,16 +9,20 @@ export default {
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-3.5px",
+    marginBottom: "-4.5px",
     "&:hover button": {
       opacity: "1",
       transition: "0.3s"
     },
-    [screenSizes.down("lg")]: {
-      width: "25%",
-      height: props => (props.showingFullPalette ? "20%" : "40%")
+    [screenSize.down("lg")]: {
+      width: "25%",   
+      height: props => (props.showingFullPalette ? "20%" : "33.333%")
     },
-    [screenSizes.down("xs")]: {
+    [screenSize.down("md")]: {
+      width: "50%",   
+      height: props => (props.showingFullPalette ? "20%" : "20%")
+    },
+    [screenSize.down("xs")]: {
       width: "100%",
       height: props => (props.showingFullPalette ? "5%" : "10%")
     }
@@ -114,7 +118,10 @@ export default {
       width: "100%",
       textAlign: "center",
       marginBottom: "0",
-      textTransform: "uppercase"
+      textTransform: "uppercase",
+      [screenSize.down('xs')] : {
+        fontSize: "6rem"
+      }
     },
     "& p": {
       fontSize: "2rem"
