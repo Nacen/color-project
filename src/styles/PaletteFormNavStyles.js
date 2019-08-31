@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
-const drawerWidth = 450;
+import screenSize from "./screenSizes";
+import { DRAWER_WIDTH } from "../constants/constants";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -13,8 +14,8 @@ const useStyles = makeStyles(theme => ({
     height: "64px"
   },
   appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
+    width: `calc(100% - ${DRAWER_WIDTH}px)`,
+    marginLeft: DRAWER_WIDTH,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
@@ -30,7 +31,17 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    marginRight: "10px"
+    marginRight: "10px",
+    [screenSize.down("xs")]: {
+      marginRight: "0px"
+    }
+  },
+  button: {
+    margin: "0 0.5rem",
+    [screenSize.down("xs")]: {
+      margin: "0 0.2rem",
+      padding: "0.3rem"
+    }
   }
 }));
 
