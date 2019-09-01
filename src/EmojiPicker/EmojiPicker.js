@@ -14,6 +14,11 @@ const EmojiPicker = ({openEmojiDialog, handleCloseEmoji, handleSubmit}) => {
   const addEmoji = ({native}) => {
     setPickedEmoji(native);
   }
+  const submitEmoji = () => {
+    handleSubmit(pickedEmoji);
+    handleCloseEmoji();
+  }
+
   return (
     <Dialog
       open={openEmojiDialog}
@@ -29,7 +34,7 @@ const EmojiPicker = ({openEmojiDialog, handleCloseEmoji, handleSubmit}) => {
         <Button onClick={handleCloseEmoji} color="primary">
           Cancel
         </Button>
-        <Button variant="contained" color="primary" onClick={() => handleSubmit(pickedEmoji)}>
+        <Button variant="contained" color="primary" onClick={submitEmoji}>
           Save Emoji
         </Button>
       </DialogActions>

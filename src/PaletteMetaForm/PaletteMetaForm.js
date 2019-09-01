@@ -27,9 +27,7 @@ const PaletteMetaForm = ({
 
   const handleSubmit = () => {
     handleCloseDialog();
-    setTimeout(() => {
-      handleOpenEmojiDialog();
-    }, 1000);
+    handleOpenEmojiDialog();
   };
 
   return (
