@@ -9,7 +9,8 @@ const MiniPalette = ({
   colors,
   emoji,
   handleClick,
-  handleDelete
+  openDialog,
+  id
 }) => {
   const miniColorBoxes = colors.map(color => (
     <div
@@ -18,13 +19,13 @@ const MiniPalette = ({
       key={color.name}
     />
   ));
-  const deletePalette = (evt) => {
+  const confirmDelete = (evt) => {
     evt.stopPropagation();
-    handleDelete();
+    openDialog(id);
   }
   return (
     <div className={classes.root} onClick={handleClick}>
-      <div className={classes.delete} onClick={deletePalette}>
+      <div className={classes.delete} onClick={confirmDelete}>
         <DeleteIcon
           className={classes.deleteIcon}
           style={{ transition: "all 0.3s ease-in-out" }}
