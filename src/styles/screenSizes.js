@@ -13,7 +13,8 @@ export default {
       xs: "450",
       sm: "768",
       md: "992",
-      lg: "1200"
+      lg: "1200",
+      xl: "1400"
     };
     return `@media (min-width: ${sizes[size]})`;
   },
@@ -22,7 +23,8 @@ export default {
       xs: "575.98px",
       sm: "767.98px",
       md: "991.98px",
-      lg: "1199.98px"
+      lg: "1199.98px",
+      xl: "1600px"
     };
     return `@media (max-width: ${sizes[size]})`;
   }
