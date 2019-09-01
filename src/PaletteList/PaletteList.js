@@ -51,7 +51,7 @@ class PaletteList extends Component {
           </nav>
           <TransitionGroup className={classes.palettes}>
             {palettes.map(palette => (
-              <CSSTransition key={palette.id} classNames="fade" timeout={500}>
+              <CSSTransition key={palette.id} classNames="fade" timeout={400}>
                 <MiniPalette
                   // handleDelete={() => deletePalette(palette.id)}
                   openDialog={this.openDeleteDialog}
