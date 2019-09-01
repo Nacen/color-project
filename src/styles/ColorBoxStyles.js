@@ -15,16 +15,14 @@ export default {
       transition: "0.3s"
     },
     [screenSize.down("lg")]: {
-      width: "25%",   
+      width: "25%",
       height: props => (props.showingFullPalette ? "20%" : "33.333%")
     },
     [screenSize.down("md")]: {
-      width: "50%",   
-      height: props => (props.showingFullPalette ? "20%" : "20%")
+      width: "50%"
     },
     [screenSize.down("xs")]: {
-      width: "100%",
-      height: props => (props.showingFullPalette ? "5%" : "10%")
+      width: "100%"
     }
   },
   boxContent: {
@@ -49,11 +47,11 @@ export default {
       chroma(props.background).luminance() <= 0.08 ? "#fff" : "#000"
   },
   seeMore: {
-    color: props =>
-      chroma(props.background).luminance() >= 0.7
+    color: "#fff",
+    background: props =>
+      chroma(props.background).luminance() >= 0.6
         ? "rgba(0, 0, 0, 0.6)"
-        : "white",
-    background: "rgba(255, 255, 255, 0.3)",
+        : "rgba(255, 255, 255, 0.3)",
     position: "absolute",
     border: "none",
     right: "0",
@@ -64,10 +62,7 @@ export default {
     lineHeight: "30px"
   },
   copyButton: {
-    color: props =>
-      chroma(props.background).luminance() >= 0.7
-        ? "rgba(0, 0, 0, 0.7)"
-        : "white",
+    color: "#fff",
     position: "absolute",
     width: "100px",
     height: "30px",
@@ -78,7 +73,10 @@ export default {
     lineHeight: "30px",
     textAlign: "center",
     opacity: "0",
-    background: "rgba(255, 255, 255, 0.3)",
+    background: props =>
+      chroma(props.background).luminance() >= 0.6
+        ? "rgba(0, 0, 0, 0.7)"
+        : "rgba(255,255,255, 0.3)",
     outline: "none",
     border: "none",
     textTransform: "uppercase",
@@ -119,7 +117,7 @@ export default {
       textAlign: "center",
       marginBottom: "0",
       textTransform: "uppercase",
-      [screenSize.down('xs')] : {
+      [screenSize.down("xs")]: {
         fontSize: "6rem"
       }
     },

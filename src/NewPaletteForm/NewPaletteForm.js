@@ -40,7 +40,7 @@ const NewPaletteForm = props => {
 
   const goBack = () => history.push("/");
 
-  const handleSavePalette = (emoji) => {
+  const handleSavePalette = emoji => {
     const newPalette = {
       paletteName: newPaletteName,
       id: newPaletteName.toLowerCase().replace(/ /g, "-"),
@@ -130,15 +130,12 @@ const NewPaletteForm = props => {
         })}
       >
         <div className={classes.drawerHeader} />
-
         <DraggableColorList
           axis="xy"
           colors={colors}
           deleteColor={deleteColor}
           onSortEnd={onSortEnd}
         />
-
-        {children}
       </main>
     </div>
   );

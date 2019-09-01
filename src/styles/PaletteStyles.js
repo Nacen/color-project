@@ -5,6 +5,7 @@ export default {
     flexDirection: "column"
   },
   paletteColors: {
-    height: "90%"
+    height: "90%",
+    overflow: "hidden"
   },
 };

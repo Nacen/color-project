@@ -54,7 +54,7 @@ class ColorBox extends Component {
             <div className={classes.boxContent}>
               <span className={classes.textColor}>{name}</span>
             </div>
-            <button className={`${classes.copyButton} ${classes.textColor}`}>
+            <button className={`${classes.copyButton}`}>
               Copy
             </button>
           </div>

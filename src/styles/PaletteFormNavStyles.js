@@ -11,7 +11,10 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    height: "64px"
+    height: "64px",
+    [screenSize.down("sm")] : {
+      justifyContent: "unset"
+    }
   },
   appBarShift: {
     width: `calc(100% - ${DRAWER_WIDTH}px)`,
@@ -22,7 +25,10 @@ const useStyles = makeStyles(theme => ({
     })
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    [screenSize.down("sm")] : {
+      marginRight: "0px"
+    }
   },
   hide: {
     display: "none"
@@ -38,10 +44,12 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     margin: "0 0.5rem",
-    [screenSize.down("xs")]: {
+    [screenSize.down("sm")]: {
       margin: "0 0.2rem",
-      padding: "0.3rem"
-    }
+      padding: "0.3rem",
+      height: "36px",
+      minWidth: "56px",
+    },
   }
 }));
 

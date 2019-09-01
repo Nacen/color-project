@@ -1,7 +1,8 @@
+import screenSize from "./screenSizes";
 export default {
   navbar: {
     display: "flex",
-    height: "7vh",
+    height: "5vh",
     alignItems: "center"
   },
 
@@ -17,6 +18,15 @@ export default {
     "& a ": {
       textDecoration: "none",
       color: "#000"
+    },
+    [screenSize.down("md")]: {
+      fontSize: "18px"
+    },
+    [screenSize.down("sm")]: {
+      fontSize: "16px"
+    },
+    [screenSize.down("xs")]: {
+      display: "none"
     }
   },
 
@@ -39,9 +49,11 @@ export default {
       marginLeft: "-7px",
       width: "13px",
       height: "13px"
+    },
+    [screenSize.down("md")]: {
+      width: "150px"
     }
   },
-
   selectContainer: {
     marginLeft: "auto",
     marginRight: "1rem"

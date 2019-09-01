@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { ValidatorForm } from "react-material-ui-form-validator";
 import useStyles from "../styles/PaletteFormNavStyles";
 import PaletteMetaForm from "../PaletteMetaForm/PaletteMetaForm";
 
@@ -64,7 +64,7 @@ const PaletteFormNav = ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Create a Palette
+            New Palette
           </Typography>
 
           {/* <Button variant="contained" color="primary" onClick={handleSave}>
@@ -80,7 +80,11 @@ const PaletteFormNav = ({
             handleCloseDialog={handleCloseDialog}
           />
           <Link to="/" style={{ textDecoration: "none" }}>
-            <Button variant="contained" color="secondary">
+            <Button
+              className={classes.button}
+              variant="contained"
+              color="secondary"
+            >
               Go Back
             </Button>
           </Link>
@@ -88,8 +92,9 @@ const PaletteFormNav = ({
             variant="contained"
             color="primary"
             onClick={handleOpenDialog}
+            className={classes.button}
           >
-            Save Palette
+            Save
           </Button>
         </div>
       </AppBar>

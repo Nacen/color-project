@@ -46,7 +46,6 @@ class SingleColorPalette extends Component {
           format={this.state.format}
           changeFormat={this.changeFormat}
         />
-        <h1>Single Color Palette</h1>
         <div className={classes.paletteColors}>
           {colorBoxes}
           <div className={classes.goBack}>

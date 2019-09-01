@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-const drawerWidth = 450;
+import { DRAWER_WIDTH } from "../constants/constants";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
     })
   },
   appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
+    width: `calc(100% - ${DRAWER_WIDTH}px)`,
+    marginLeft: DRAWER_WIDTH,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
@@ -26,11 +26,11 @@ const useStyles = makeStyles(theme => ({
     display: "none"
   },
   drawer: {
-    width: drawerWidth,
+    width: DRAWER_WIDTH,
     flexShrink: 0
   },
   drawerPaper: {
-    width: drawerWidth
+    width: DRAWER_WIDTH
   },
   drawerHeader: {
     display: "flex",
@@ -42,12 +42,11 @@ const useStyles = makeStyles(theme => ({
   content: {
     height: "calc(100vh - 64px)",
     flexGrow: 1,
-    // padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    marginLeft: -drawerWidth
+    marginLeft: -DRAWER_WIDTH
   },
   contentShift: {
     transition: theme.transitions.create("margin", {
@@ -59,7 +58,7 @@ const useStyles = makeStyles(theme => ({
 
   formContainer: {
     display: "flex",
-    flexDirection: 'column',
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     height: "100%"
@@ -75,9 +74,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-between",
     alignItems: "center",
     height: "80%",
-    width: "80%",
-
-  },
+    width: "80%"
+  }
 }));
 
 export default useStyles;
