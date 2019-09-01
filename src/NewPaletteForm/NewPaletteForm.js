@@ -135,6 +135,7 @@ const NewPaletteForm = props => {
           colors={colors}
           deleteColor={deleteColor}
           onSortEnd={onSortEnd}
+          distance={20}
         />
       </main>
     </div>
