@@ -16,7 +16,7 @@ import ColorPicker from "../ColorPicker/ColorPicker";
 const NewPaletteForm = props => {
   const defaultPaletteLength = props.paletteLength ? props.paletteLength : 20;
 
-  const { palettes, history, savePalette, children } = props;
+  const { palettes, history, savePalette } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [colors, setColors] = useState(palettes[0].colors);
