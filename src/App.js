@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -14,13 +14,13 @@ function App() {
   const savedPalettes = JSON.parse(localStorage.getItem("palettes"));
   const [palettes, setPalettes] = useState(savedPalettes || seedColors);
 
-  React.useEffect(() => {
-    function syncLocalStorage() {
-      return localStorage.setItem("palettes", JSON.stringify(palettes));
-    }
+  useEffect(() => {
+    const syncLocalStorage = () => {
+      localStorage.setItem("palettes", JSON.stringify(palettes));
+    };
     syncLocalStorage();
   }, [palettes]);
-
+  
   const savePalette = newPalette => {
     setPalettes([...palettes, newPalette]);
   };
@@ -32,6 +32,7 @@ function App() {
   const findPalette = id => {
     return palettes.find(palette => palette.id === id);
   };
+
 
   return (
     <Route

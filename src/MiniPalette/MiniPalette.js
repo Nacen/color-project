@@ -8,7 +8,7 @@ const MiniPalette = ({
   paletteName,
   colors,
   emoji,
-  handleClick,
+  goToPalette,
   openDialog,
   id
 }) => {
@@ -19,10 +19,15 @@ const MiniPalette = ({
       key={color.name}
     />
   ));
-  const confirmDelete = (evt) => {
+
+  const confirmDelete = evt => {
     evt.stopPropagation();
     openDialog(id);
-  }
+  };
+
+  const handleClick = () => goToPalette(id);
+
+  console.log("Mpal Rendered");
   return (
     <div className={classes.root} onClick={handleClick}>
       <div className={classes.delete} onClick={confirmDelete}>

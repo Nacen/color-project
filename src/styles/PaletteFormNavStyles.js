@@ -12,9 +12,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row",
     justifyContent: "space-between",
     height: "64px",
-    [screenSize.down("sm")] : {
-      justifyContent: "unset"
-    }
   },
   appBarShift: {
     width: `calc(100% - ${DRAWER_WIDTH}px)`,
