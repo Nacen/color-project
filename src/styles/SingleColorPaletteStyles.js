@@ -9,19 +9,6 @@ export default {
     height: "90%"
   },
 
-  colorBox: {
-    width: "20%",
-    height: props => (props.showingFullPalette ? "25%" : "40%"),
-    margin: "0 auto",
-    display: "inline-block",
-    position: "relative",
-    cursor: "pointer",
-    marginBottom: "-3.5px",
-    "&:hover button": {
-      opacity: "1",
-      transition: "0.3s"
-    }
-  },
   goBack: {
     background: "black",
     width: "20%",
@@ -49,18 +36,17 @@ export default {
       textTransform: "uppercase",
       cursor: "pointer"
     },
-    [screenSize.down('lg')] : {
+    [screenSize.down("lg")]: {
       width: "25%",
       height: "33.333%"
     },
-    [screenSize.down('md')] : {
+    [screenSize.down("md")]: {
       width: "50%",
       height: "20%"
     },
-    [screenSize.down('xs')] : {
+    [screenSize.down("xs")]: {
       width: "100%",
       height: "10%"
-    },
-    
+    }
   }
 };

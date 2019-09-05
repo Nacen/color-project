@@ -5,8 +5,7 @@ import { withStyles } from "@material-ui/styles";
 import ColorBox from "../ColorBox/ColorBox";
 import Navbar from "../Navbar/Navbar";
 import PaletteFooter from "../PaletteFooter/PaletteFooter";
-import styles from '../styles/SingleColorPaletteStyles';
-
+import styles from "../styles/SingleColorPaletteStyles";
 
 class SingleColorPalette extends Component {
   state = {
