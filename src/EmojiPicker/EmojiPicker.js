@@ -14,6 +14,7 @@ const EmojiPicker = ({openEmojiDialog, handleCloseEmoji, handleSubmit}) => {
   const addEmoji = ({native}) => {
     setPickedEmoji(native);
   }
+  
   const submitEmoji = () => {
     handleSubmit(pickedEmoji);
     handleCloseEmoji();

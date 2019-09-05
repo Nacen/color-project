@@ -27,7 +27,6 @@ const MiniPalette = ({
 
   const handleClick = () => goToPalette(id);
 
-  console.log("Mpal Rendered");
   return (
     <div className={classes.root} onClick={handleClick}>
       <div className={classes.delete} onClick={confirmDelete}>

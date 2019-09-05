@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import Button from "@material-ui/core/Button";
-import { withStyles } from '@material-ui/styles';
-import styles from '../styles/ColorPickerStyles';
-
+import { withStyles } from "@material-ui/styles";
+import styles from "../styles/ColorPickerStyles";
 
 const ColorPicker = ({
   currentColor,
@@ -16,24 +15,24 @@ const ColorPicker = ({
   colors,
   classes
 }) => {
-
   useEffect(() => {
-    ValidatorForm.addValidationRule("isColorNameUnique", value =>
-      colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
+    ValidatorForm.addValidationRule("isColorNameUnique", value => {
+      return colors.every(
+        ({ name }) => name.toLowerCase() !== value.toLowerCase()
+      );
+    });
+    ValidatorForm.addValidationRule("isColorUnique", value =>
+      colors.every(({ color }) => color !== currentColor)
     );
-    // ValidatorForm.addValidationRule("isColorValueUnique", value =>
-    //   colors.every(({ value }) => {
-    //     console.log(value);
-    //     console.log(currentColor);
-    //     return value !== currentColor;
-    //   })
-    // );
     return () => {
       ValidatorForm.removeValidationRule("isColorNameUnique");
-      // ValidatorForm.removeValidationRule("isColorValueUnique");
+      ValidatorForm.removeValidationRule("isColorValueUnique");
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [colors, currentColor]);
+
+  const handleSubmit = () => {
+    addColor(currentColor, colorName);
+  };
 
   return (
     <React.Fragment>
@@ -42,22 +41,22 @@ const ColorPicker = ({
         color={currentColor}
         onChangeComplete={newColor => setCurrentColor(newColor.hex)}
       />
-      <ValidatorForm className={classes.addColor} onSubmit={() => addColor(currentColor, colorName)}>
+      <ValidatorForm
+        className={classes.addColor}
+        instantValidate={false}
+        onSubmit={handleSubmit}
+      >
         <TextValidator
           style={{ minWidth: "100%" }}
           label="New Color"
           value={colorName}
           onChange={evt => setColorName(evt.target.value)}
           name="New Color Name"
-          validators={[
-            "required",
-            "isColorNameUnique"
-            // "isColorValueUnique"
-          ]}
+          validators={["required", "isColorNameUnique", "isColorUnique"]}
           errorMessages={[
             "This field is required",
-            "Color name already exist"
-            // "Color already exist"
+            "Color name already exist",
+            "Color already exist"
           ]}
         />
         <Button

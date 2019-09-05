@@ -8,6 +8,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from "@material-ui/core/Button";
 import useStyles from "../styles/NewPaletteFormStyles";
 import { arrayMove } from "react-sortable-hoc";
+import seedColors from "../seedColors";
 
 import DraggableColorList from "../DraggableColorList/DraggableColorList";
 import PaletteFormNav from "../PaletteFormNav/PaletteFormNav";
@@ -15,11 +16,11 @@ import ColorPicker from "../ColorPicker/ColorPicker";
 
 const NewPaletteForm = props => {
   const defaultPaletteLength = props.paletteLength ? props.paletteLength : 20;
-
   const { palettes, history, savePalette } = props;
+
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [colors, setColors] = useState(palettes[0].colors);
+  const [colors, setColors] = useState(seedColors[0].colors);
   const [colorName, setColorName] = useState("");
   const [currentColor, setCurrentColor] = useState("purple");
   const [newPaletteName, setNewPaletteName] = useState("");
@@ -34,7 +35,7 @@ const NewPaletteForm = props => {
   }
 
   const addColor = (currentColor, colorName) => {
-    setColors([...colors, { color: currentColor, name: colorName }]);
+    setColors([...colors, { name: colorName, color: currentColor }]);
     setColorName("");
   };
 
@@ -59,11 +60,22 @@ const NewPaletteForm = props => {
     setColors(arrayMove(colors, oldIndex, newIndex));
   };
 
-  const clearPalette = () => setColors([]);
+  const clearPalette = () => {
+    setColors([]);
+    setColorName("");
+  };
 
   const getRandomColor = () => {
-    const colors = palettes.map(palette => palette.colors).flat();
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    const paletteColors = seedColors.map(palette => palette.colors).flat();
+    let random;
+    let randomColor;
+    let isDuplicateColor = true;
+    while (isDuplicateColor) {
+      random = Math.floor(Math.random() * paletteColors.length);
+      randomColor = paletteColors[random];
+      // eslint-disable-next-line no-loop-func
+      isDuplicateColor = colors.some(color => color.name === randomColor.name);
+    }
     addColor(randomColor.color, randomColor.name);
   };
 
@@ -94,7 +106,9 @@ const NewPaletteForm = props => {
         <Divider />
         <div className={classes.formContainer}>
           <div className={classes.newPaletteForm}>
-            <Typography variant="h4">Design your Palette</Typography>
+            <Typography variant="h4" style={{ textAlign: "center" }}>
+              Design your Palette
+            </Typography>
             <div className={classes.buttonContainer}>
               <Button
                 variant="contained"

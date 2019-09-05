@@ -20,7 +20,7 @@ function App() {
     };
     syncLocalStorage();
   }, [palettes]);
-  
+
   const savePalette = newPalette => {
     setPalettes([...palettes, newPalette]);
   };
@@ -32,7 +32,6 @@ function App() {
   const findPalette = id => {
     return palettes.find(palette => palette.id === id);
   };
-
 
   return (
     <Route
@@ -88,6 +87,17 @@ function App() {
                       palette={generatePalette(
                         findPalette(routeProps.match.params.paletteId)
                       )}
+                    />
+                  </Page>
+                )}
+              />
+              <Route
+                render={routeProps => (
+                  <Page>
+                    <PaletteList
+                      deletePalette={deletePalette}
+                      palettes={palettes}
+                      {...routeProps}
                     />
                   </Page>
                 )}
